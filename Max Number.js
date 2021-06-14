@@ -2,33 +2,21 @@
 // Output
 // Print all top integers on the console, separated by single space.
 
-function maxNumber(numbersArray) {
-    let topElements = [];
-
-    for (let index = 0; index < numbersArray.length; index++) {
-        let curentNum = numbersArray[index];
-        let isBigger = 0;
-        let isSmaller = 0;
-        let i = index + 1;
-        while (i < numbersArray.length) {
-            let tempNum = numbersArray[i];
-
-            if (curentNum > tempNum) {
-                isBigger++;
-            } else {
-                isSmaller++;
+function solve(array) {
+    let topIntegers = [];
+    for (let index = 0; index < array.length; index++) {
+        let isTop = true;
+        for (let j = index + 1; j < array.length; j++) {
+            if (array[index] <= array[j]) {
+                isTop = false;
                 break;
             }
-
-            i++;
         }
-
-        if (isSmaller === 0) {
-            topElements.push(curentNum);
+        if (isTop) {
+            topIntegers.push(array[index])
         }
     }
-
-    console.log(topElements.join(' '));
+    console.log(topIntegers.join(' '));
 }
 
-maxNumber([41, 41, 34, 20]);
+solve([41, 41, 34, 20]);

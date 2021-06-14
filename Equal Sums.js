@@ -2,40 +2,25 @@
 // If there are NO elements to the left/right, their sum is 0. 
 // Print the index that satisfies the required condition or "no" if there is no such index.
 
-function equalSums(arrNums) {
-    let indexOfEquel
-    let areEqual = false;
-
-    for (let index = 0; index < arrNums.length; index++) {
+function solve(array) {
+    isEqual = false;
+    for (let i = 0; i < array.length; i++) {
         let leftSum = 0;
         let rightSum = 0;
-        // left Sum
-        for (let i = index - 1; i >= 0; i--) {
-            if (index < 0) {
-                break;
-            }
-            leftSum += arrNums[i];
+        for (let j = i + 1; j < array.length; j++) {
+            rightSum += array[j];
         }
-
-        // Right Sum
-        for (let j = index + 1; j < arrNums.length; j++) {
-            if (j === arrNums.length) {
-                break;
-            }
-            rightSum += arrNums[j];
+        for (let l = 0; l < i; l++) {
+            leftSum += array[l];
         }
-
-        if (leftSum === rightSum) {
-            indexOfEquel = index;
-            areEqual = true;
+        if (leftSum == rightSum) {
+            isEqual = true;
+            console.log(i);
         }
     }
-
-    if (areEqual) {
-        console.log(indexOfEquel);
-    } else {
+    if (!isEqual) {
         console.log('no');
     }
 }
 
-equalSums([10, 5, 5, 99, 3, 4, 2, 5, 1, 1, 4]);
+solve([10, 5, 5, 99, 3, 4, 2, 5, 1, 1, 4]);

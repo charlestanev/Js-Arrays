@@ -5,33 +5,22 @@
 // // On the first line print the newly modified array, on the second line print the sum of numbers from the original array, on the third line print the sum of numbers from the modified array.
 
 function addAndSubtract(numbersArray) {
-    let newArray = [];
-    let sumOrigin = 0;
-    let sumModified = 0;
+    let sumOne = 0;
+    let sumTwo = 0;
 
-    for (let index = 0; index < numbersArray.length; index++) {
-        let currentNum = numbersArray[index];
-
-        if (currentNum % 2 === 0) {
-            currentNum = numbersArray[index] + index;
-            newArray.push(currentNum);
+    for (let index = 0; index < array.length; index++) {
+        sumOne += Number(array[index]);
+        if (array[index] % 2 === 0) {
+            array[index] = array[index] + index;
         } else {
-            currentNum = numbersArray[index] - index;
-            newArray.push(currentNum);
+            array[index] = array[index] - index
         }
+        sumTwo += Number(array[index]);
     }
 
-    for (let current of numbersArray) {
-        sumOrigin += current;
-    }
-
-    for (let current of newArray) {
-        sumModified += current
-    }
-
-    console.log(newArray);
-    console.log(sumOrigin);
-    console.log(sumModified);
+    console.log(array);
+    console.log(sumOne);
+    console.log(sumTwo);
 
 }
 

@@ -6,19 +6,18 @@
 // Output
 // As output you should print the resulting third array, each element separated by " - ".
 
-function mergeArrays(arrOne, arrTwo) {
-    let arrThree = [];
-    for (let index = 0; index < arrOne.length; index++) {
-        let arrOneElement = arrOne[index];
-        let arrTwoElement = arrTwo[index];
-        if (index % 2 === 0) {
-            arrThree.push(Number(arrOneElement) + Number(arrTwoElement));
-        } else {
-            arrThree.push(arrOneElement + arrTwoElement);
-        }
-    }
+function solve(array1, array2) {
+    let thirdArr = [];
 
-    console.log(arrThree.join(' - '));
+    for (let index = 0; index < array1.length; index++) {
+        if (index % 2 === 0) {
+            thirdArr.push((Number(array1[index]) + Number(array2[index])).toString());
+        } else {
+            thirdArr.push((' - ' + array1[index] + array2[index] + ' - '));
+        }
+
+    }
+    console.log(thirdArr.join(''));
 }
 
-mergeArrays(['5', '15', '23', '56', '35'], ['17', '22', '87', '36', '11']);
+solve(['5', '15', '23', '56', '35'], ['17', '22', '87', '36', '11']);
