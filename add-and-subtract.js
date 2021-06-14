@@ -26,7 +26,6 @@ function addAndSubtract(numbersArray) {
     console.log(newArray);
     console.log(sumOrigin);
     console.log(sumModified);
-
 }
 
 //addAndSubtract([5, 15, 23, 56, 35]);
